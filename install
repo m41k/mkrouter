@@ -1,0 +1,13 @@
+#!/bin/sh
+
+apt-get install dnsmasq hostapd -y
+
+echo "denyinterfaces wlan0" >> /etc/dhcpcd.conf
+
+
+echo "allow-hotplug wlan0" >> /etc/network/interfaces
+echo "iface wlan0 inet static" >> /etc/network/interfaces
+echo "address 192.168.41.10" >> /etc/network/interfaces
+echo "netmask 255.255.255.0" >> /etc/network/interfaces
+echo "network 192.168.41.1" >> /etc/network/interfaces
+echo "broadcast 192.168.41.255" >> /etc/network/interfaces
